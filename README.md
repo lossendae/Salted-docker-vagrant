@@ -1,0 +1,1 @@
+# Salted-docker-vagrant
