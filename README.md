@@ -21,11 +21,11 @@ Organization and this file inspired by : https://github.com/krak3n/salted-docker
 
 ## TODO
 
-[] Use the unless commands to prevent duplicates and unnecessary cmd commands
+- [ ] Use the unless commands to prevent duplicates and unnecessary cmd commands
 
 For testing purpose : http://dylanlindgren.com/docker-for-the-laravel-framework/
 
-[] Install following containers via Saltstack :
+- [ ] Install following containers via Saltstack (?) :
 
 ```
 sudo docker pull dylanlindgren/docker-laravel-data && \
@@ -40,4 +40,8 @@ sudo docker run --privileged=true --name myapp-php --volumes-from myapp-data -d 
 sudo docker run --privileged=true --name myapp-web --volumes-from myapp-data -p 8080:80 --lin
 ```
 
-[] Create containers for Apache / PHP 5.2 on the same VM
+Create containers for : 
+
+- [ ] Apache 
+- [x] PHP 5.2.17 
+- [ ] Data
