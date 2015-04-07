@@ -1,0 +1,13 @@
+# OS-specific
+.DS_Store
+
+# Vagrant stuff
+.vagrant/*
+
+# Python
+*.pyc
+
+# IDE junk
+.idea/*
+*.iml
+.project
