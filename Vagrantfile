@@ -13,7 +13,7 @@ Vagrant.configure(2) do |config|
       config.vm.synced_folder "./data", "/app"
 
       config.vm.network "forwarded_port", guest: 80, host: 8080, auto_correct: true
-      config.vm.network "private_network", ip: "192.168.1.50"
+      config.vm.network "public_network", ip: "192.168.1.50"
 
       # Provisioner - Salt
       config.vm.provision :salt do |salt|
