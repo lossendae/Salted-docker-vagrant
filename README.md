@@ -36,13 +36,13 @@ For testing purpose : http://dylanlindgren.com/docker-for-the-laravel-framework/
 Debug containers locally :
 
 ```
-sudo docker build -t app/data .
-sudo docker build -t app/php52 .
-sudo docker build -t app/apache .
+sudo docker build -t lossendae/data .
+sudo docker build -t lossendae/php52 .
+sudo docker build -t lossendae/apache .
 
-sudo docker run --name app-data -v /app:/var/www:rw app/data 
-sudo docker run --privileged=true --name app-php --volumes-from app-data -d app/php52  
-sudo docker run --privileged=true --name app-apache --volumes-from app-data -p 80:80 --link app-php:lamp-legacy -d app/apache  
+sudo docker run --name app-data -v /app:/var/www:rw lossendae/data 
+sudo docker run --privileged=true --name app-php --volumes-from app-data -d lossendae/php52  
+sudo docker run --privileged=true --name app-apache --volumes-from app-data -p 80:80 --link app-php:lamp-legacy -d lossendae/apache  
 
 #status
 sudo docker ps -a
