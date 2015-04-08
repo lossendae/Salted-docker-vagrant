@@ -13,35 +13,46 @@ For this to work you need the following installed.
 
 ## Usage
 
-Clone the repo and ``vagrant up && vagrant reload``
-
-## Credits
-
-Organization and this file inspired by : https://github.com/krak3n/salted-docker-vagrant
+Clone the repo and ``vagrant up``
 
 ## TODO
+
+Create containers for : 
+
+- [x] Apache 
+- [x] PHP 5.2.17 
+- [x] Data
+
+Saltstack :
 
 - [ ] Use the unless commands to prevent duplicates and unnecessary cmd commands
 
 For testing purpose : http://dylanlindgren.com/docker-for-the-laravel-framework/
 
-- [ ] Install following containers via Saltstack (?) :
+- [ ] Install docker containers via Saltstack
+
+## Misc
+
+Debug containers locally :
 
 ```
-sudo docker pull dylanlindgren/docker-laravel-data && \
-sudo docker pull dylanlindgren/docker-laravel-composer && \
-sudo docker pull dylanlindgren/docker-laravel-artisan && \
-sudo docker pull dylanlindgren/docker-laravel-phpfpm && \
-sudo docker pull dylanlindgren/docker-laravel-nginx && \
+sudo docker build -t app/data .
+sudo docker build -t app/php52 .
+sudo docker build -t app/apache .
 
-sudo docker run --name myapp-data -v /app:/data:rw dylanlindgren/docker-laravel-data  
-sudo docker run --privileged=true --volumes-from myapp-data --rm dylanlindgren/docker-laravel-composer create-project laravel/laravel data/www --prefer-dist
-sudo docker run --privileged=true --name myapp-php --volumes-from myapp-data -d dylanlindgren/docker-laravel-phpfpm
-sudo docker run --privileged=true --name myapp-web --volumes-from myapp-data -p 8080:80 --lin
+sudo docker run --name app-data -v /app:/var/www:rw app/data 
+sudo docker run --privileged=true --name app-php --volumes-from app-data -d app/php52  
+sudo docker run --privileged=true --name app-apache --volumes-from app-data -p 80:80 --link app-php:lamp-legacy -d app/apache  
+
+#status
+sudo docker ps -a
+
+#remove image
+sudo docker rmi <image>
+
+#remove container
+sudo docker rm <container-name>
+
+#logs
+sudo docker logs <container-name>
 ```
-
-Create containers for : 
-
-- [ ] Apache 
-- [x] PHP 5.2.17 
-- [ ] Data

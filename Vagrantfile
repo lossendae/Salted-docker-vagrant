@@ -12,7 +12,8 @@ Vagrant.configure(2) do |config|
       # Shared folder for data containers
       config.vm.synced_folder "./data", "/app"
 
-      config.vm.network "forwarded_port", guest: 80, host: 80, auto_correct: true
+      config.vm.network "forwarded_port", guest: 80, host: 8000
+      config.vm.network "forwarded_port", guest: 443, host: 44300
       config.vm.network "public_network", ip: "192.168.1.50"
 
       # Provisioner - Salt
