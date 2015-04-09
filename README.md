@@ -29,7 +29,7 @@ Saltstack :
 
 For testing purpose : http://dylanlindgren.com/docker-for-the-laravel-framework/
 
-- [-] Install docker containers via Saltstack
+- [x] Install docker containers via Saltstack
 
 ## Misc
 
