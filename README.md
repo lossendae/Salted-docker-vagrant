@@ -49,7 +49,6 @@ sudo docker run --privileged=true --name app-test --volumes-from app-data-legacy
 sudo docker pull lossendae/data && \
 sudo docker pull lossendae/php52 && \
 sudo docker pull lossendae/apache
-```
 
 #status
 sudo docker ps -a
