@@ -11,6 +11,10 @@ Vagrant.configure(2) do |config|
 
       # Shared folder for data containers
       config.vm.synced_folder "./data", "/app"
+      config.vm.synced_folder "./server/", "/server"
+
+      # Comment the following line if not working on docker containers
+      config.vm.synced_folder "./containers/", "/containers"
 
       config.vm.network "forwarded_port", guest: 80, host: 8000
       config.vm.network "forwarded_port", guest: 443, host: 44300
