@@ -25,9 +25,9 @@ app-apache-legacy-running:
         app-php-legacy-container: lamp-legacy-link
     - volumes_from:
       - app-data-legacy-container
-    - ports:
+    - port_bindings:
         "80/tcp":
-            HostIp: "192.168.1.50"
+            HostIp: "0.0.0.0"
             HostPort: "80"
     - watch:
       - docker: app-php-legacy-container
