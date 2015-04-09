@@ -40,9 +40,16 @@ sudo docker build -t lossendae/data .
 sudo docker build -t lossendae/php52 .
 sudo docker build -t lossendae/apache .
 
-sudo docker run --name app-data -v /app:/var/www:rw lossendae/data 
-sudo docker run --privileged=true --name app-php --volumes-from app-data -d lossendae/php52  
-sudo docker run --privileged=true --name app-apache --volumes-from app-data -p 80:80 --link app-php:lamp-legacy -d lossendae/apache  
+sudo docker run --name app-data -v /app:/var/www:rw lossendae/data && \
+sudo docker run --privileged=true --name app-php --volumes-from app-data -d lossendae/php52 && \
+sudo docker run --privileged=true --name app-apache --volumes-from app-data -p 80:80 --link app-php:lamp-legacy -d lossendae/apache
+sudo docker run --privileged=true --name app-test --volumes-from app-data-legacy-container -p 80:80 --link app-php-legacy-container:lamp-legacy -d lossendae/apache
+
+# There they are...
+sudo docker pull lossendae/data && \
+sudo docker pull lossendae/php52 && \
+sudo docker pull lossendae/apache
+```
 
 #status
 sudo docker ps -a

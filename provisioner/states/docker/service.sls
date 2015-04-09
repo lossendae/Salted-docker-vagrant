@@ -9,7 +9,8 @@ include:
 docker_service:
   service.running:
     - name: docker
-    - enable: True
+    - sig: /usr/bin/docker
+    # - enable: True
     # - reload: True
-    - watch:
+    - require:
       - pkg: lxc-docker

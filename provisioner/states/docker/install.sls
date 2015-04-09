@@ -16,6 +16,6 @@ lxc-docker:
   pkg:
     - installed
     - require:
-      - pkg: python-software-properties
+      - pkg: docker-py
     - require:
       - cmd: install-docker
