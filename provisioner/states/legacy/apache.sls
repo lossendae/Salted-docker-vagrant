@@ -27,8 +27,8 @@ app-apache-legacy-running:
       - app-data-legacy-container
     - ports:
         "80/tcp":
-          HostIp: "192.168.1.50"
-          HostPort: "80"
+            HostIp: "192.168.1.50"
+            HostPort: "80"
     - watch:
       - docker: app-php-legacy-container
     - require:
