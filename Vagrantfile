@@ -18,6 +18,8 @@ Vagrant.configure(2) do |config|
 
       config.vm.network "forwarded_port", guest: 80, host: 8000
       config.vm.network "forwarded_port", guest: 443, host: 44300
+
+      # Edit following line for own case
       config.vm.network "public_network", ip: "192.168.1.50"
 
       # Provisioner - Salt
