@@ -10,8 +10,8 @@ Vagrant.configure(2) do |config|
       config.vm.synced_folder "./provisioner", "/srv/salt"
 
       # Shared folder for data containers
-      config.vm.synced_folder "./data", "/app"
-      config.vm.synced_folder "./server/", "/server"
+      config.vm.synced_folder "./app", "/app", :create => true, :owner => "www-data", :group => "www-data"
+      config.vm.synced_folder "./services/", "/services", :create => true, :owner => "www-data", :group => "www-data"
 
       # Comment the following line if not working on docker containers
       config.vm.synced_folder "./containers/", "/containers"
@@ -20,7 +20,7 @@ Vagrant.configure(2) do |config|
       config.vm.network "forwarded_port", guest: 443, host: 44300
 
       # Edit following line for own case
-      config.vm.network "public_network", ip: "192.168.1.50"
+      config.vm.network "public_network", ip: "192.168.2.90"
 
       # Provisioner - Salt
       config.vm.provision :salt do |salt|
