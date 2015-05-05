@@ -17,13 +17,22 @@ Clone the repo and ``vagrant up``
 
 ## TODO
 
+- [x] Nginx container
 - [x] Apache container
 - [x] PHP 5.2.17 container
-- [x] Data volume container
-- [x] Install docker containers via Saltstack
+- [x] PHP 5.6 container
+- [x] Automatize docker containers deployment via Saltstack
 - [ ] Use the unless commands to prevent duplicates and unnecessary cmd commands
-- [ ] Handle graceful PID for Apache
+- [x] Handle graceful PID for Apache
 
-## References
+## Run states from the host vm
 
-For testing purpose : http://dylanlindgren.com/docker-for-the-laravel-framework/
+```
+salt-call state.highstate --local -l debug
+```
+
+## Change default editor
+
+```
+sudo update-alternatives --config editor
+```gren.com/docker-for-the-laravel-framework/

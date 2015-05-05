@@ -3,5 +3,5 @@
 #
 
 include:
-  - ..install
+  # - ..install
   - ..service

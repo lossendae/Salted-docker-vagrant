@@ -1,4 +1,5 @@
 base:
   '*':
+    - tools
     - docker
-    - legacy
+#    - legacy
